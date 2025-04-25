@@ -1,4 +1,4 @@
-## zeelandflow
+## ZLFLO
 
 Zeelandflow is a groundwater modeling framework for the Provincie Zeeland.
 
