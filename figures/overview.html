@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_6ffa2ea1ea65b9ed5d01708cf3c0f2c4 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    
+                    <style>
+                        .foliumtooltip {
+                            
+                        }
+                       .foliumtooltip table{
+                            margin: auto;
+                        }
+                        .foliumtooltip tr{
+                            text-align: left;
+                        }
+                        .foliumtooltip th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+    
+                    <style>
+                        .foliumpopup {
+                            margin: auto;
+                        }
+                       .foliumpopup table{
+                            margin: auto;
+                        }
+                        .foliumpopup tr{
+                            text-align: left;
+                        }
+                        .foliumpopup th{
+                            padding: 2px; padding-right: 8px;
+                        }
+                    </style>
+            
+    
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>$( function() {
+        $( ".maplegend" ).draggable({
+            start: function (event, ui) {
+                $(this).css({
+                    right: "auto",
+                    top: "auto",
+                    bottom: "auto"
+                });
+            }
+        });
+    });
+    </script>
+    <style type='text/css'>
+      .maplegend {
+        position: absolute;
+        z-index:9999;
+        background-color: rgba(255, 255, 255, .8);
+        border-radius: 5px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        padding: 10px;
+        font: 12px/14px Arial, Helvetica, sans-serif;
+        right: 10px;
+        bottom: 20px;
+      }
+      .maplegend .legend-title {
+        text-align: left;
+        margin-bottom: 5px;
+        font-weight: bold;
+        }
+      .maplegend .legend-scale ul {
+        margin: 0;
+        margin-bottom: 0px;
+        padding: 0;
+        float: left;
+        list-style: none;
+        }
+      .maplegend .legend-scale ul li {
+        list-style: none;
+        margin-left: 0;
+        line-height: 16px;
+        margin-bottom: 2px;
+        }
+      .maplegend ul.legend-labels li span {
+        display: block;
+        float: left;
+        height: 14px;
+        width: 14px;
+        margin-right: 5px;
+        margin-left: 0;
+        border: 0px solid #ccc;
+        }
+      .maplegend .legend-source {
+        color: #777;
+        clear: both;
+        }
+      .maplegend a {
+        color: #777;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    
+    <div id='maplegend model' class='maplegend'>
+        <div class='legend-title'>model</div>
+        <div class='legend-scale'>
+            <ul class='legend-labels'>
+                <li><span style='background:#1f77b4'></span>Manteling</li>
+            </ul>
+        </div>
+    </div>
+    
+    
+            <div class="folium-map" id="map_6ffa2ea1ea65b9ed5d01708cf3c0f2c4" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_6ffa2ea1ea65b9ed5d01708cf3c0f2c4 = L.map(
+                "map_6ffa2ea1ea65b9ed5d01708cf3c0f2c4",
+                {
+                    center: [51.52056248710667, 3.5569464503672954],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 10,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_6ffa2ea1ea65b9ed5d01708cf3c0f2c4);
+
+            
+
+        
+    
+            var tile_layer_e8a5bc111ccdd6346612adeab2a74882 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_e8a5bc111ccdd6346612adeab2a74882.addTo(map_6ffa2ea1ea65b9ed5d01708cf3c0f2c4);
+        
+    
+            map_6ffa2ea1ea65b9ed5d01708cf3c0f2c4.fitBounds(
+                [[51.42845682714646, 3.4093064202142402], [51.61266814706689, 3.70458648052035]],
+                {}
+            );
+        
+    
+        function geo_json_4cf94176424d9b23e7714fb4f4c06184_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#1f77b4", "fillColor": "#1f77b4", "fillOpacity": 0.5, "weight": 2};
+            }
+        }
+        function geo_json_4cf94176424d9b23e7714fb4f4c06184_highlighter(feature) {
+            switch(feature.id) {
+                default:
+                    return {"fillOpacity": 0.75};
+            }
+        }
+        function geo_json_4cf94176424d9b23e7714fb4f4c06184_pointToLayer(feature, latlng) {
+            var opts = {
+  "stroke": true,
+  "color": "#3388ff",
+  "weight": 3,
+  "opacity": 1.0,
+  "lineCap": "round",
+  "lineJoin": "round",
+  "dashArray": null,
+  "dashOffset": null,
+  "fill": true,
+  "fillColor": "#3388ff",
+  "fillOpacity": 0.2,
+  "fillRule": "evenodd",
+  "bubblingMouseEvents": true,
+  "radius": 2,
+};
+            
+            let style = geo_json_4cf94176424d9b23e7714fb4f4c06184_styler(feature)
+            Object.assign(opts, style)
+            
+            return new L.CircleMarker(latlng, opts)
+        }
+
+        function geo_json_4cf94176424d9b23e7714fb4f4c06184_onEachFeature(feature, layer) {
+
+            layer.on({
+                mouseout: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                            geo_json_4cf94176424d9b23e7714fb4f4c06184.resetStyle(e.target);
+                    }
+                },
+                mouseover: function(e) {
+                    if(typeof e.target.setStyle === "function"){
+                        const highlightStyle = geo_json_4cf94176424d9b23e7714fb4f4c06184_highlighter(e.target.feature)
+                        e.target.setStyle(highlightStyle);
+                    }
+                },
+            });
+        };
+        var geo_json_4cf94176424d9b23e7714fb4f4c06184 = L.geoJson(null, {
+                onEachFeature: geo_json_4cf94176424d9b23e7714fb4f4c06184_onEachFeature,
+            
+                style: geo_json_4cf94176424d9b23e7714fb4f4c06184_styler,
+                pointToLayer: geo_json_4cf94176424d9b23e7714fb4f4c06184_pointToLayer,
+            ...{
+}
+        });
+
+        function geo_json_4cf94176424d9b23e7714fb4f4c06184_add (data) {
+            geo_json_4cf94176424d9b23e7714fb4f4c06184
+                .addData(data);
+        }
+            geo_json_4cf94176424d9b23e7714fb4f4c06184_add({"bbox": [3.4093064202142402, 51.42845682714646, 3.70458648052035, 51.61266814706689], "features": [{"bbox": [3.4093064202142402, 51.42845682714646, 3.70458648052035, 51.61266814706689], "geometry": {"coordinates": [[[3.4171099701459764, 51.42845682714646], [3.70458648052035, 51.43295868548491], [3.697920496205326, 51.61266814706689], [3.4093064202142402, 51.6081429868379], [3.4171099701459764, 51.42845682714646]]], "type": "Polygon"}, "id": "model extent Manteling", "properties": {"__folium_color": "#1f77b4", "model": "Manteling", "type": "model extent", "url": "\u003ca href=https://github.com/ZLFLO/manteling\u003eManteling\u003c/a\u003e"}, "type": "Feature"}, {"bbox": [3.484039227574589, 51.5620822078685, 3.6353164647390934, 51.59573748486769], "geometry": {"coordinates": [[[3.484039227574589, 51.56253258791935], [3.51459512082673, 51.5620822078685], [3.549976707078274, 51.575671154561334], [3.5658481987005355, 51.57064210846755], [3.577202745257778, 51.579314530152956], [3.618625928516548, 51.581288170687316], [3.626950012258991, 51.56906999159246], [3.6353164647390934, 51.571335411250345], [3.628364668261286, 51.58989506432589], [3.5990475911644877, 51.59547393584753], [3.58051702629691, 51.59573748486769], [3.5539872027368373, 51.589975154879525], [3.4950173039458945, 51.56735904908922], [3.484039227574589, 51.56253258791935]]], "type": "Polygon"}, "id": "interessegebied Manteling", "properties": {"__folium_color": "#1f77b4", "model": "Manteling", "type": "interessegebied", "url": "\u003ca href=https://github.com/ZLFLO/manteling\u003eManteling\u003c/a\u003e"}, "type": "Feature"}], "type": "FeatureCollection"});
+
+        
+    
+    geo_json_4cf94176424d9b23e7714fb4f4c06184.bindTooltip(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["model", "type"];
+    let aliases = ["model", "type"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i]}</th>
+            
+            <td>${handleObject(layer.feature.properties[v])}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "sticky": true,
+  "className": "foliumtooltip",
+});
+                     
+    
+    geo_json_4cf94176424d9b23e7714fb4f4c06184.bindPopup(
+    function(layer){
+    let div = L.DomUtil.create('div');
+    
+    let handleObject = feature => {
+        if (feature === null) {
+            return '';
+        } else if (typeof(feature)=='object') {
+            return JSON.stringify(feature);
+        } else {
+            return feature;
+        }
+    }
+    let fields = ["url"];
+    let aliases = ["url"];
+    let table = '<table>' +
+        String(
+        fields.map(
+        (v,i)=>
+        `<tr>
+            <th>${aliases[i].toLocaleString()}</th>
+            
+            <td>${handleObject(layer.feature.properties[v]).toLocaleString()}</td>
+        </tr>`).join(''))
+    +'</table>';
+    div.innerHTML=table;
+    
+    return div
+    }
+    ,{
+  "className": "foliumpopup",
+});
+                     
+    
+            geo_json_4cf94176424d9b23e7714fb4f4c06184.addTo(map_6ffa2ea1ea65b9ed5d01708cf3c0f2c4);
+        
+</script>
+</html>
