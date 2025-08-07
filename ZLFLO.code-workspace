@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"name": ".github",
+			"path": "../../ZLFLO/.github"
+		},
+		{
+			"name": "manteling",
+			"path": "../../ZLFLO/manteling"
+		},
+		{
+			"name": "data",
+			"path": "../../ZLFLO/data"
+		},
+		{
+			"name": "overview",
+			"path": "../../ZLFLO/overview"
+		}
+	],
+	"settings": {}
+}
