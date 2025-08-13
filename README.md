@@ -1,2 +1,2 @@
 # .github
-Github settings for the zeelandflow organization
+Github settings and scripts for the zeelandflow organization
