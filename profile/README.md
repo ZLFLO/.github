@@ -5,8 +5,8 @@ ZLFLO is a groundwater modeling framework for the Provincie Zeeland.
 ### Repositories
 
 - tools
-- data
-- model_template
+- [data](https://github.com/ZLFLO/data)
+- [model_template](https://github.com/ZLFLO/model_template)
 
 ### Models
 
