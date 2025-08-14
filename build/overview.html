@@ -17,7 +17,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_c583d54041f0f2e3ae85bf7e9a20ed92 {
+                #map_af1079027fe9511782dbcba8dc69f76b {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -159,14 +159,14 @@
     </div>
     
     
-            <div class="folium-map" id="map_c583d54041f0f2e3ae85bf7e9a20ed92" ></div>
+            <div class="folium-map" id="map_af1079027fe9511782dbcba8dc69f76b" ></div>
         
 </body>
 <script>
     
     
-            var map_c583d54041f0f2e3ae85bf7e9a20ed92 = L.map(
-                "map_c583d54041f0f2e3ae85bf7e9a20ed92",
+            var map_af1079027fe9511782dbcba8dc69f76b = L.map(
+                "map_af1079027fe9511782dbcba8dc69f76b",
                 {
                     center: [51.588760912221176, 3.610564358322067],
                     crs: L.CRS.EPSG3857,
@@ -178,13 +178,13 @@
 
                 }
             );
-            L.control.scale().addTo(map_c583d54041f0f2e3ae85bf7e9a20ed92);
+            L.control.scale().addTo(map_af1079027fe9511782dbcba8dc69f76b);
 
             
 
         
     
-            var tile_layer_0defa3287e58b0df5b0e2e62005011ce = L.tileLayer(
+            var tile_layer_4bb5289849b3579323ef9b1fa91e96eb = L.tileLayer(
                 "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {
   "minZoom": 0,
@@ -201,16 +201,16 @@
             );
         
     
-            tile_layer_0defa3287e58b0df5b0e2e62005011ce.addTo(map_c583d54041f0f2e3ae85bf7e9a20ed92);
+            tile_layer_4bb5289849b3579323ef9b1fa91e96eb.addTo(map_af1079027fe9511782dbcba8dc69f76b);
         
     
-            map_c583d54041f0f2e3ae85bf7e9a20ed92.fitBounds(
+            map_af1079027fe9511782dbcba8dc69f76b.fitBounds(
                 [[51.42845682714652, 3.4093064202142416], [51.74906499729584, 3.811822296429892]],
                 {}
             );
         
     
-        function geo_json_7f3226e05217f9fb744e094d56c56e8e_styler(feature) {
+        function geo_json_acf2c1537b9057101702e9f4f22cf598_styler(feature) {
             switch(feature.id) {
                 case "model extent example_model": 
                     return {"color": "#1f77b4", "fillColor": "#1f77b4", "fillOpacity": 0.5, "weight": 2};
@@ -218,13 +218,13 @@
                     return {"color": "#9edae5", "fillColor": "#9edae5", "fillOpacity": 0.5, "weight": 2};
             }
         }
-        function geo_json_7f3226e05217f9fb744e094d56c56e8e_highlighter(feature) {
+        function geo_json_acf2c1537b9057101702e9f4f22cf598_highlighter(feature) {
             switch(feature.id) {
                 default:
                     return {"fillOpacity": 0.75};
             }
         }
-        function geo_json_7f3226e05217f9fb744e094d56c56e8e_pointToLayer(feature, latlng) {
+        function geo_json_acf2c1537b9057101702e9f4f22cf598_pointToLayer(feature, latlng) {
             var opts = {
   "stroke": true,
   "color": "#3388ff",
@@ -242,46 +242,46 @@
   "radius": 2,
 };
             
-            let style = geo_json_7f3226e05217f9fb744e094d56c56e8e_styler(feature)
+            let style = geo_json_acf2c1537b9057101702e9f4f22cf598_styler(feature)
             Object.assign(opts, style)
             
             return new L.CircleMarker(latlng, opts)
         }
 
-        function geo_json_7f3226e05217f9fb744e094d56c56e8e_onEachFeature(feature, layer) {
+        function geo_json_acf2c1537b9057101702e9f4f22cf598_onEachFeature(feature, layer) {
 
             layer.on({
                 mouseout: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                            geo_json_7f3226e05217f9fb744e094d56c56e8e.resetStyle(e.target);
+                            geo_json_acf2c1537b9057101702e9f4f22cf598.resetStyle(e.target);
                     }
                 },
                 mouseover: function(e) {
                     if(typeof e.target.setStyle === "function"){
-                        const highlightStyle = geo_json_7f3226e05217f9fb744e094d56c56e8e_highlighter(e.target.feature)
+                        const highlightStyle = geo_json_acf2c1537b9057101702e9f4f22cf598_highlighter(e.target.feature)
                         e.target.setStyle(highlightStyle);
                     }
                 },
             });
         };
-        var geo_json_7f3226e05217f9fb744e094d56c56e8e = L.geoJson(null, {
-                onEachFeature: geo_json_7f3226e05217f9fb744e094d56c56e8e_onEachFeature,
+        var geo_json_acf2c1537b9057101702e9f4f22cf598 = L.geoJson(null, {
+                onEachFeature: geo_json_acf2c1537b9057101702e9f4f22cf598_onEachFeature,
             
-                style: geo_json_7f3226e05217f9fb744e094d56c56e8e_styler,
-                pointToLayer: geo_json_7f3226e05217f9fb744e094d56c56e8e_pointToLayer,
+                style: geo_json_acf2c1537b9057101702e9f4f22cf598_styler,
+                pointToLayer: geo_json_acf2c1537b9057101702e9f4f22cf598_pointToLayer,
             ...{
 }
         });
 
-        function geo_json_7f3226e05217f9fb744e094d56c56e8e_add (data) {
-            geo_json_7f3226e05217f9fb744e094d56c56e8e
+        function geo_json_acf2c1537b9057101702e9f4f22cf598_add (data) {
+            geo_json_acf2c1537b9057101702e9f4f22cf598
                 .addData(data);
         }
-            geo_json_7f3226e05217f9fb744e094d56c56e8e_add({"bbox": [3.4093064202142416, 51.42845682714652, 3.811822296429892, 51.74906499729584], "features": [{"bbox": [3.649455524885533, 51.6569608084794, 3.811822296429892, 51.74906499729584], "geometry": {"coordinates": [[[3.6529052691262565, 51.6569608084794], [3.811822296429892, 51.65920778358634], [3.80868840089129, 51.74906499729584], [3.649455524885533, 51.7468121976803], [3.6529052691262565, 51.6569608084794]]], "type": "Polygon"}, "id": "model extent example_model", "properties": {"__folium_color": "#1f77b4", "model": "example_model", "type": "extent", "url": "\u003ca href=https://github.com/ZLFLO/example_model target=\u0027_blank\u0027\u003eexample_model\u003c/a\u003e"}, "type": "Feature"}, {"bbox": [3.4093064202142416, 51.42845682714652, 3.704586480520351, 51.61266814706689], "geometry": {"coordinates": [[[3.4171099701459773, 51.42845682714652], [3.704586480520351, 51.43295868548494], [3.697920496205326, 51.61266814706689], [3.4093064202142416, 51.6081429868379], [3.4171099701459773, 51.42845682714652]]], "type": "Polygon"}, "id": "model extent manteling", "properties": {"__folium_color": "#9edae5", "model": "manteling", "type": "extent", "url": "\u003ca href=https://github.com/ZLFLO/manteling target=\u0027_blank\u0027\u003emanteling\u003c/a\u003e"}, "type": "Feature"}], "type": "FeatureCollection"});
+            geo_json_acf2c1537b9057101702e9f4f22cf598_add({"bbox": [3.4093064202142416, 51.42845682714652, 3.811822296429892, 51.74906499729584], "features": [{"bbox": [3.649455524885533, 51.6569608084794, 3.811822296429892, 51.74906499729584], "geometry": {"coordinates": [[[3.6529052691262565, 51.6569608084794], [3.811822296429892, 51.65920778358634], [3.80868840089129, 51.74906499729584], [3.649455524885533, 51.7468121976803], [3.6529052691262565, 51.6569608084794]]], "type": "Polygon"}, "id": "model extent example_model", "properties": {"__folium_color": "#1f77b4", "model": "example_model", "type": "extent", "url": "\u003ca href=https://github.com/ZLFLO/example_model target=\u0027_blank\u0027\u003eexample_model\u003c/a\u003e"}, "type": "Feature"}, {"bbox": [3.4093064202142416, 51.42845682714652, 3.704586480520351, 51.61266814706689], "geometry": {"coordinates": [[[3.4171099701459773, 51.42845682714652], [3.704586480520351, 51.43295868548494], [3.697920496205326, 51.61266814706689], [3.4093064202142416, 51.6081429868379], [3.4171099701459773, 51.42845682714652]]], "type": "Polygon"}, "id": "model extent manteling", "properties": {"__folium_color": "#9edae5", "model": "manteling", "type": "extent", "url": "\u003ca href=https://github.com/ZLFLO/manteling target=\u0027_blank\u0027\u003emanteling\u003c/a\u003e"}, "type": "Feature"}], "type": "FeatureCollection"});
 
         
     
-    geo_json_7f3226e05217f9fb744e094d56c56e8e.bindTooltip(
+    geo_json_acf2c1537b9057101702e9f4f22cf598.bindTooltip(
     function(layer){
     let div = L.DomUtil.create('div');
     
@@ -316,7 +316,7 @@
 });
                      
     
-    geo_json_7f3226e05217f9fb744e094d56c56e8e.bindPopup(
+    geo_json_acf2c1537b9057101702e9f4f22cf598.bindPopup(
     function(layer){
     let div = L.DomUtil.create('div');
     
@@ -350,7 +350,13 @@
 });
                      
     
-            geo_json_7f3226e05217f9fb744e094d56c56e8e.addTo(map_c583d54041f0f2e3ae85bf7e9a20ed92);
+            geo_json_acf2c1537b9057101702e9f4f22cf598.addTo(map_af1079027fe9511782dbcba8dc69f76b);
+        
+    
+            map_af1079027fe9511782dbcba8dc69f76b.fitBounds(
+                [[51.2, 3.35], [51.8, 4.3]],
+                {}
+            );
         
 </script>
 </html>

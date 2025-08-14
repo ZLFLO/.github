@@ -1,11 +1,12 @@
-#%%
+# %%
+# packages
 from pathlib import Path
 import nlmod
 import sys
 import folium as folium
 import geopandas as gpd
-#%%
-
+# %%
+# setup
 model_names = [
     "example_model",
     "manteling",
@@ -13,11 +14,7 @@ model_names = [
 
 gdf = gpd.GeoDataFrame(columns=["model", "type", "url", "geometry"])
 
-def get_url_from_ml_name(model_name: str) -> str:
-    url = f"<a href=https://github.com/ZLFLO/{model_name.lower()} target='_blank'>{model_name}</a>"
-    return url
-
-#%%
+# %%
 # fill geodataframe
 for model_name in model_names:
     model_ws = Path(f"../{model_name}/src")
@@ -29,18 +26,21 @@ for model_name in model_names:
     gdf.loc[f"model extent {model_name}"] = [
         model_name,
         "extent",
-        get_url_from_ml_name(model_name),
+        f"<a href=https://github.com/ZLFLO/{model_name.lower()} target='_blank'>{model_name}</a>",
         nlmod.util.extent_to_polygon(extent),
     ]
     print(extent)
 
     del sys.modules["settings"]
 gdf = gdf.set_crs("EPSG:28992")
-#%%
+# %%
+# plot geodataframe to double check
 ax = gdf.plot(alpha=0.5)
 nlmod.plot.add_background_map(ax=ax)
-#%%
-# create html file
+# %%
+# create folium map and html file
+gdf = gdf.to_crs("EPSG:4326")  # Convert to WGS84
 fmap = gdf.explore(column="model", tooltip=["model", "type"], popup="url")
+fmap.fit_bounds([[51.2, 3.35], [51.8, 4.3]])  # set extent to zeeland province
 fmap.save("build/overview.html")
 fmap
