@@ -1,38 +1,46 @@
+#%%
 from pathlib import Path
 import nlmod
 import sys
-
+import folium as folium
 import geopandas as gpd
-
-# load config from manteling model
-manteling_ws = "../manteling/scripts"
-sys.path.append(manteling_ws)
-import config as manteling_config
-
-sys.path.pop(len(sys.path) - 1)
-
-# %%
-gdf_models_overview = gpd.GeoDataFrame(columns=["model", "type", "geometry"])
-gdf_models_overview.loc["model extent Manteling"] = [
-    "Manteling",
-    "model extent",
-    nlmod.util.extent_to_polygon(manteling_config.extent),
-]
-gdf_models_overview.loc["interessegebied Manteling"] = [
-    "Manteling",
-    "interessegebied",
-    manteling_config.shapes["manteling"],
-]
-
-gdf_models_overview["url"] = (
-    "<a href=https://github.com/ZLFLO/"
-    + gdf_models_overview["model"].str.lower()
-    + ">"
-    + gdf_models_overview["model"]
-    + "</a>"
-)
 #%%
-gdf_models_overview = gdf_models_overview.set_crs(epsg=28992)
-m = gdf_models_overview.explore(column="model", tooltip=["model", "type"], popup="url")
-m.save("build/figures/overview.html")
 
+model_names = [
+    "example_model",
+    "manteling",
+]
+
+gdf = gpd.GeoDataFrame(columns=["model", "type", "url", "geometry"])
+
+def get_url_from_ml_name(model_name: str) -> str:
+    url = f"<a href=https://github.com/ZLFLO/{model_name.lower()} target='_blank'>{model_name}</a>"
+    return url
+
+#%%
+# fill geodataframe
+for model_name in model_names:
+    model_ws = Path(f"../{model_name}/src")
+    print(model_ws)
+    sys.path.insert(0, str(model_ws))
+    settings = __import__("settings")
+    extent = list(settings.extent)
+
+    gdf.loc[f"model extent {model_name}"] = [
+        model_name,
+        "extent",
+        get_url_from_ml_name(model_name),
+        nlmod.util.extent_to_polygon(extent),
+    ]
+    print(extent)
+
+    del sys.modules["settings"]
+gdf = gdf.set_crs("EPSG:28992")
+#%%
+ax = gdf.plot(alpha=0.5)
+nlmod.plot.add_background_map(ax=ax)
+#%%
+# create html file
+fmap = gdf.explore(column="model", tooltip=["model", "type"], popup="url")
+fmap.save("build/overview.html")
+fmap
