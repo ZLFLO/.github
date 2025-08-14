@@ -31,8 +31,8 @@ gdf_models_overview["url"] = (
     + gdf_models_overview["model"]
     + "</a>"
 )
+#%%
 gdf_models_overview = gdf_models_overview.set_crs(epsg=28992)
 m = gdf_models_overview.explore(column="model", tooltip=["model", "type"], popup="url")
+m.save("build/figures/overview.html")
 
-m.save("figures/overview.html")
-m
