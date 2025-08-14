@@ -37,23 +37,22 @@
     </style>
 </head>
 
-<body>
-    <div class="welcome-container">
-        <h1>ZLFLO</h1>
-        <img src="zeeland_vlag.svg" alt="Flag of Zeeland"
-            style="width:120px; margin-bottom:1rem; border-radius:6px; box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<body
+    style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; min-height: 100vh;">
+    <div class="welcome-container" style="margin-top: 4rem;">
+        <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+            <h1 style="margin-bottom: 0;">ZLFLO</h1>
+            <img src="zeeland_vlag.svg" alt="Flag of Zeeland"
+                style="width: 60px; border-radius: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+        </div>
         <p>
-            ZLFLO is a groundwater modeling framework for the Provincie Zeeland. The organisation is hosted on GitHub at
-            <a href="https://github.com/zlflo" target="_blank" rel="noopener">https://github.com/zlflo</a>. ZLFLO hosts
-            several groundwater models from
-            which the extent can be viewed in the map.
+            ZLFLO is a groundwater modeling framework for the Provincie Zeeland, hosted on <a
+                href="https://github.com/zlflo" target="_blank" rel="noopener">GitHub</a>. Explore the
+            groundwater models via the map.
         </p>
     </div>
-</body>
-
-</body>
-<iframe src="overview.html"
-    style="width:100%; height:600px; border:none; display:block; margin: 2rem auto 0 auto;"></iframe>
+    <iframe src="overview.html"
+        style="width:100%; max-width:900px; height:600px; border:none; display:block; margin: 2rem auto 0 auto;"></iframe>
 </body>
 
 </html>
